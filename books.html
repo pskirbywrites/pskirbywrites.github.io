@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books — P.S. Kirby</title>
+  <meta name="description" content="Breaking Point, Fluir, and The Restoration — MM romance novels by P.S. Kirby." />
+  <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1A1A1A;
+      --stone: #D9D0C7;
+      --parchment: #F5F0EB;
+      --ash: #555555;
+      --ink-soft: rgba(26,26,26,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, .display {
+      font-family: 'Sorts Mill Goudy', serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: rgba(245, 240, 235, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(26, 26, 20, 0.1);
+    }
+    .nav-logo { font-family: 'Sorts Mill Goudy', serif; font-size: 1.4rem; letter-spacing: 0.06em; }
+    .nav-links { display: flex; list-style: none; gap: 2.2rem; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links a { opacity: 0.75; transition: opacity 0.25s ease; padding-bottom: 3px; border-bottom: 1px solid transparent; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; border-bottom-color: var(--ink); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 9rem 4rem 3rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .page-header .eyebrow {
+      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ash);
+      display: block; margin-bottom: 0.8rem;
+    }
+    .page-header h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
+
+    /* BOOK BLOCK */
+    .book-block {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 4rem;
+      border-top: 1px solid rgba(26,26,26,0.12);
+    }
+    .book-block:first-of-type { border-top: none; }
+
+    .book-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(26,26,26,0.1);
+    }
+
+    .book-info h2 { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    .book-info .book-tagline {
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 1.15rem;
+      margin-bottom: 1.4rem;
+    }
+
+    /* HEAT RATING */
+    .heat-rating { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.4rem; }
+    .heat-rating .drops { display: flex; gap: 4px; }
+    .heat-rating svg { width: 20px; height: 26px; }
+    .heat-rating .rating-label { font-size: 0.85rem; color: var(--ash); letter-spacing: 0.04em; margin-left: 0.4rem; }
+
+    /* TROPES */
+    .tropes { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.6rem; }
+    .trope-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(26,26,26,0.25);
+      color: var(--ink-soft);
+    }
+
+    .book-blurb p { margin-bottom: 1.1rem; max-width: 65ch; }
+    .book-blurb p:last-of-type { margin-bottom: 1.6rem; }
+
+    .cw-line {
+      font-size: 0.85rem;
+      color: var(--ash);
+      border-left: 2px solid var(--stone);
+      padding-left: 1rem;
+      margin: 1.6rem 0;
+      max-width: 55ch;
+    }
+
+    .book-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.7rem;
+      border: 1px solid var(--ink);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+    .btn:hover { background: var(--ink); color: var(--parchment); }
+    .btn-filled { background: var(--ink); color: var(--parchment); }
+    .btn-filled:hover { background: transparent; color: var(--ink); }
+
+    /* READING ORDER NOTE */
+    .reading-order {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 3rem 4rem 6rem;
+      text-align: center;
+    }
+    .reading-order p { max-width: 55ch; margin: 0 auto; color: var(--ink-soft); }
+
+    footer {
+      padding: 3rem 4rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+      border-top: 1px solid rgba(26,26,26,0.1);
+      font-size: 0.85rem;
+    }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.78rem; }
+    .footer-links a { opacity: 0.7; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-imprint { opacity: 0.6; font-size: 0.78rem; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-header, .book-block, .reading-order { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .book-block { grid-template-columns: 1fr; padding-top: 3rem; padding-bottom: 3rem; }
+      .book-cover { max-width: 260px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reusable ink-drop icon definitions -->
+  <svg width="0" height="0" style="position:absolute;">
+    <defs>
+      <symbol id="drop-full" viewBox="0 0 24 32">
+        <path d="M12 0 C12 0 22 15 22 21 C22 27 17.5 32 12 32 C6.5 32 2 27 2 21 C2 15 12 0 12 0 Z" fill="#1A1A1A"/>
+      </symbol>
+      <symbol id="drop-empty" viewBox="0 0 24 32">
+        <path d="M12 0 C12 0 22 15 22 21 C22 27 17.5 32 12 32 C6.5 32 2 27 2 21 C2 15 12 0 12 0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.6"/>
+      </symbol>
+      <symbol id="drop-half" viewBox="0 0 24 32">
+        <path d="M12 0 C12 0 22 15 22 21 C22 27 17.5 32 12 32 C6.5 32 2 27 2 21 C2 15 12 0 12 0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.6"/>
+        <clipPath id="halfclip"><rect x="0" y="0" width="12" height="32"/></clipPath>
+        <path d="M12 0 C12 0 22 15 22 21 C22 27 17.5 32 12 32 C6.5 32 2 27 2 21 C2 15 12 0 12 0 Z" fill="#1A1A1A" clip-path="url(#halfclip)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <nav>
+    <a href="index.html" class="nav-logo">P.S. Kirby</a>
+    <ul class="nav-links">
+      <li><a href="books.html" class="active">Books</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="inside.html">The Inside</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="index.html#newsletter">Newsletter</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <span class="eyebrow">The Catalog</span>
+    <h1>Three Books. Three Worlds.</h1>
+  </div>
+
+  <!-- BREAKING POINT -->
+  <div class="book-block" id="breaking-point">
+    <div class="book-cover">
+      <img src="breaking-point.png" alt="Breaking Point cover" />
+    </div>
+    <div class="book-info">
+      <h2>Breaking Point</h2>
+      <p class="book-tagline">Everyone has a breaking point. Theirs just happened to be each other.</p>
+
+      <div class="heat-rating">
+        <div class="drops">
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+        </div>
+        <span class="rating-label">5 / 5</span>
+      </div>
+
+      <div class="tropes">
+        <span class="trope-tag">Enemies to Lovers</span>
+        <span class="trope-tag">Forced Proximity</span>
+        <span class="trope-tag">Secret Relationship</span>
+        <span class="trope-tag">Workplace</span>
+      </div>
+
+      <div class="book-blurb">
+        <p>Sean Hannigan and Tucker Williamson spent six months trying to destroy each other.</p>
+        <p>Sean is chief of staff to Georgia's newest Democratic senator — sharp, out, and done playing nice after a campaign that got personal. Tucker is chief of staff to the Republican who beat him to it — polished, guarded, and very good at keeping secrets, including the biggest one of all.</p>
+        <p>When they're forced into the same DC office building, old rivalries should stay exactly where they belong: in the past. But a catastrophic dam failure throws them together, and the careful walls Tucker's spent his whole life building start to crack.</p>
+        <p>What starts in stolen moments and locked doors becomes something neither of them can walk away from. But politics in Washington runs on leverage — and someone's found exactly the kind of leverage that could end both their careers.</p>
+        <p>Tucker has spent his life choosing the safe answer. Now he has to choose between hiding forever, or losing everything to finally be free.</p>
+      </div>
+
+      <p class="cw-line">Content note: explicit sexual content, depictions of a natural disaster and its emotional aftermath, panic/anxiety, a difficult family coming-out scene.</p>
+
+      <div class="book-actions">
+        <a href="https://www.amazon.com/dp/B0H5R12FZ8" class="btn btn-filled" target="_blank">Get the Book</a>
+        <a href="inside.html" class="btn">Join the ARC Team</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLUIR -->
+  <div class="book-block" id="fluir">
+    <div class="book-cover">
+      <img src="fluir.jpg" alt="Fluir cover" />
+    </div>
+    <div class="book-info">
+      <h2>Fluir</h2>
+      <p class="book-tagline">Colombia breaks everyone. Camden is starting to think he doesn't mind.</p>
+
+      <div class="heat-rating">
+        <div class="drops">
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+        </div>
+        <span class="rating-label">5 / 5</span>
+      </div>
+
+      <div class="tropes">
+        <span class="trope-tag">Vacation Romance</span>
+        <span class="trope-tag">Slow Burn</span>
+        <span class="trope-tag">Found Connection</span>
+        <span class="trope-tag">Friend Group</span>
+      </div>
+
+      <div class="book-blurb">
+        <p>Camden Hayes has spent his whole life moving toward warmth. He left cold Massachusetts for Atlanta. He builds perfect trips for other people — curated, researched, confirmed in triplicate — to places he's never quite let himself fully feel. He has rules. Good ones. Sensible ones, built after a Croatian bartender named Luka taught him at twenty-five exactly what it felt like to think you were seen and find out you weren't.</p>
+        <p>The rule is simple: don't get involved with hospitality workers in other countries. He's kept it for six years. It has served him well. He is keeping it in Colombia.</p>
+        <p>Then Mateo Salazar pulls up on a motorcycle outside a hotel in Medellín and says his name, and something about the way the vowels land — warmer than they've ever been in anyone else's mouth — tells Camden this particular rule is about to have structural problems.</p>
+        <p>Fluir is the first book in the Fuego series — a slow burn MM romance set across the most beautiful country Camden has ever stood inside, for readers who like their heat high, their burns slow, and their endings warm and completely earned.</p>
+        <p>Colombia breaks everyone. That's what Mateo says. Camden is starting to think he doesn't mind.</p>
+      </div>
+
+      <p class="cw-line">Content note: explicit sexual content. No major content warnings beyond that — this one's the lighter read of the three.</p>
+
+      <div class="book-actions">
+        <a href="https://www.amazon.com/dp/B0H574BZYN" class="btn btn-filled" target="_blank">Get the Book</a>
+        <a href="inside.html" class="btn">Join the ARC Team</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE RESTORATION -->
+  <div class="book-block" id="the-restoration">
+    <div class="book-cover">
+      <img src="the-restoration.jpg" alt="The Restoration cover" />
+    </div>
+    <div class="book-info">
+      <h2>The Restoration</h2>
+      <p class="book-tagline">You trust that something whole is underneath all the damage, even when you can't see it yet.</p>
+
+      <div class="heat-rating">
+        <div class="drops">
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-full"/></svg>
+          <svg><use href="#drop-empty"/></svg>
+        </div>
+        <span class="rating-label">4 / 5</span>
+      </div>
+
+      <div class="tropes">
+        <span class="trope-tag">Second Chance at Love</span>
+        <span class="trope-tag">Grief &amp; Healing</span>
+        <span class="trope-tag">Slow Burn</span>
+        <span class="trope-tag">New Beginnings</span>
+      </div>
+
+      <div class="book-blurb">
+        <p>Owen Calloway restores damaged paintings for a living. He knows how to be patient with other people's broken things.</p>
+        <p>He's considerably less skilled at his own.</p>
+        <p>After catching his boyfriend in their bed with someone else, Owen does what feels safest — he goes numb. A hookup app. A username that says everything: nothere4chat. If he keeps moving, nothing can touch him.</p>
+        <p>Then he meets Ben Navarro.</p>
+        <p>Ben is a bartender who keeps his late partner's photographs in careful archival boxes in his closet. He's not looking for anything either. But Owen keeps coming back, and Ben keeps letting him in, and somewhere between grief and guardedness they start to look like something neither of them planned.</p>
+        <p>You work in millimeters. You trust that something whole is underneath all the damage, even when you can't see it yet.</p>
+        <p>He's just never been brave enough to apply that to himself.</p>
+      </div>
+
+      <p class="cw-line">Content note: explicit sexual content, depicted infidelity (not portrayed sympathetically), grief and loss of a previous partner.</p>
+
+      <div class="book-actions">
+        <a href="https://www.amazon.com/dp/B0H56FPYSG" class="btn btn-filled" target="_blank">Get the Book</a>
+        <a href="inside.html" class="btn">Join the ARC Team</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="reading-order">
+    <p>No right or wrong way to read these — none of the books go in a specific order. At least not yet. If you want somewhere to start: <em>Fluir</em> for something lighter, <em>The Restoration</em> for something angstier with a healing arc, or <em>Breaking Point</em> for a political thriller wrapped around a romance.</p>
+  </div>
+
+  <footer>
+    <span class="footer-imprint">Stone&amp;Ink Publishing © 2026</span>
+    <ul class="footer-links">
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="https://www.tiktok.com/@pskirbyauthor" target="_blank">TikTok</a></li>
+      <li><a href="#" target="_blank">Instagram</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
