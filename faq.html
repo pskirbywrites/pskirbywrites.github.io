@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — P.S. Kirby</title>
+  <meta name="description" content="Frequently asked questions about P.S. Kirby, MM romance author of Breaking Point, Fluir, and The Restoration." />
+  <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1A1A1A; --stone: #D9D0C7; --parchment: #F5F0EB; --ash: #555555; --ink-soft: rgba(26,26,26,0.72);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--parchment); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; line-height: 1.65; }
+    h1, h2, h3 { font-family: 'Sorts Mill Goudy', serif; font-weight: 400; letter-spacing: 0.01em; }
+    a { color: inherit; text-decoration: underline; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 3rem;
+      background: rgba(245, 240, 235, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(26, 26, 20, 0.1);
+    }
+    .nav-logo { font-family: 'Sorts Mill Goudy', serif; font-size: 1.4rem; letter-spacing: 0.06em; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 2.2rem; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links a { opacity: 0.75; transition: opacity 0.25s ease; padding-bottom: 3px; border-bottom: 1px solid transparent; text-decoration: none; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; border-bottom-color: var(--ink); }
+
+    .page-header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 9rem 4rem 2rem;
+      text-align: center;
+    }
+    .page-header .eyebrow {
+      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ash);
+      display: block; margin-bottom: 0.8rem;
+    }
+    .page-header h1 { font-size: clamp(2.2rem, 4vw, 3rem); }
+
+    .faq-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 4rem 6rem;
+    }
+
+    .faq-category {
+      margin-bottom: 2.5rem;
+    }
+    .faq-category-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(26,26,26,0.15);
+    }
+
+    details {
+      border-bottom: 1px solid rgba(26,26,26,0.12);
+    }
+    details summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.3rem 0;
+      font-size: 1.05rem;
+      font-weight: 400;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary .q-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+    details summary .q-icon::before,
+    details summary .q-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--ink);
+      transition: transform 0.25s ease;
+    }
+    details summary .q-icon::before {
+      top: 9px; left: 2px; width: 16px; height: 1.5px;
+    }
+    details summary .q-icon::after {
+      top: 2px; left: 9px; width: 1.5px; height: 16px;
+    }
+    details[open] summary .q-icon::after { transform: rotate(90deg); opacity: 0; }
+
+    details .answer {
+      padding: 0 0 1.5rem;
+      color: var(--ink-soft);
+      max-width: 62ch;
+    }
+    details .answer p { margin-bottom: 0.9rem; }
+    details .answer p:last-child { margin-bottom: 0; }
+
+    footer {
+      padding: 3rem 4rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+      border-top: 1px solid rgba(26,26,26,0.1);
+      font-size: 0.85rem;
+    }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.78rem; }
+    .footer-links a { opacity: 0.7; text-decoration: none; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-imprint { opacity: 0.6; font-size: 0.78rem; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-header { padding: 7rem 1.5rem 1.5rem; }
+      .faq-wrap { padding: 1.5rem 1.5rem 4rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">P.S. Kirby</a>
+    <ul class="nav-links">
+      <li><a href="books.html">Books</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="inside.html">The Inside</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="index.html#newsletter">Newsletter</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <span class="eyebrow">Questions &amp; Answers</span>
+    <h1>Frequently Asked</h1>
+  </div>
+
+  <div class="faq-wrap">
+
+    <div class="faq-category">
+      <div class="faq-category-title">Origin &amp; Brand</div>
+
+      <details>
+        <summary>Why does a gay man write MM romance?<span class="q-icon"></span></summary>
+        <div class="answer"><p>I started writing because I noticed a real gap in queer representation in the romance world — the majority of MM romance is written by women, many of whom aren't queer at all. I felt like the stories I could write would carry an authenticity that only a gay man writing this genre could bring.</p></div>
+      </details>
+
+      <details>
+        <summary>What does "P.S." stand for?<span class="q-icon"></span></summary>
+        <div class="answer"><p>P.S. are the first initials of my first and middle name — Kirby is my actual last name. The pen name lets me separate my professional life from my author persona, and gives me a space that's just for the writing.</p></div>
+      </details>
+
+      <details>
+        <summary>What's Stone&amp;Ink Publishing?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Stone&amp;Ink is my own imprint — a way to turn my writing into something I could tangibly hold. "Stone" is a nod to the Stonewall Riots; "Ink" makes clear this is a writing house.</p></div>
+      </details>
+
+      <details>
+        <summary>How long have you been writing?<span class="q-icon"></span></summary>
+        <div class="answer"><p>On and off since around 2021 — but I didn't find the momentum to actually publish until January 2026.</p></div>
+      </details>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">The Books</div>
+
+      <details>
+        <summary>Is there a recommended reading order?<span class="q-icon"></span></summary>
+        <div class="answer"><p>No right or wrong way to read these — none of the books go in a specific order. At least not yet. 😉</p></div>
+      </details>
+
+      <details>
+        <summary>Are your books connected, or all standalone?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Right now, every book exists in its own world. I've been toying with the idea of a crossover series down the line, though.</p></div>
+      </details>
+
+      <details>
+        <summary>What's the heat/steam level?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Expect explicit scenes — but ones that serve the story, not just the moment. I aim for a 4 to 4.5 out of 5 ink drops in most of my novels, always in service of the plot. Check each book's page for its specific rating.</p></div>
+      </details>
+
+      <details>
+        <summary>Any content warnings?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Depending on the book, there may be some grief or on-page violence. I lean toward grounding my stories in real-life situations, which tends to keep things a little tamer overall. Each book's page has its specific content note.</p></div>
+      </details>
+
+      <details>
+        <summary>Which book should a new reader start with?<span class="q-icon"></span></summary>
+        <div class="answer"><p>For something lighter, start with <em>Fluir</em>. For something angstier with a healing arc, start with <em>The Restoration</em>. <em>Breaking Point</em> is its own thing — a political thriller wrapped around a romance that'll keep you turning pages.</p></div>
+      </details>
+
+      <details>
+        <summary>Will there be more books in the Breaking Point universe?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Can't give too much away — but there may be some ideas floating around for expanding that world. 👀</p></div>
+      </details>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Audiobooks</div>
+
+      <details>
+        <summary>Are audiobooks coming?<span class="q-icon"></span></summary>
+        <div class="answer"><p><em>The Restoration</em> and <em>Fluir</em> audiobooks are expected in the second half of 2026 — no hard date yet, since they're still in production. <em>Breaking Point</em> will get an audiobook too, timeline still TBD.</p></div>
+      </details>
+
+      <details>
+        <summary>Who narrates them?<span class="q-icon"></span></summary>
+        <div class="answer"><p><em>The Restoration</em>: Taylor Nguyen. <em>Fluir</em>: Christmas Jones.</p></div>
+      </details>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Merch &amp; Shop</div>
+
+      <details>
+        <summary>Do you sell signed copies?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Not yet — but I'm open to it!</p></div>
+      </details>
+
+      <details>
+        <summary>Is merch coming?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Yes — a merch line is currently in the works. It'll be available right here on pskirby.com.</p></div>
+      </details>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Fan Engagement</div>
+
+      <details>
+        <summary>Do you take ARC requests?<span class="q-icon"></span></summary>
+        <div class="answer"><p>I love ARC readers! Head over to <a href="inside.html">The Inside</a> to join.</p></div>
+      </details>
+
+      <details>
+        <summary>Where's the best place to follow you?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Newsletter for updates straight to your inbox — TikTok and Instagram for the most current info, and occasional polls that help shape what I'm working on.</p></div>
+      </details>
+
+      <details>
+        <summary>Do you do reader Q&amp;As or live content?<span class="q-icon"></span></summary>
+        <div class="answer"><p>I'd love to do all of the above!</p></div>
+      </details>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Craft &amp; Personal</div>
+
+      <details>
+        <summary>What draws you to romance specifically?<span class="q-icon"></span></summary>
+        <div class="answer"><p>Getting lost in a world and living vicariously through the characters — the character development is what hooks me, and yes, the steamy scenes are a nice bonus.</p></div>
+      </details>
+
+      <details>
+        <summary>Favorite tropes or influences?<span class="q-icon"></span></summary>
+        <div class="answer"><p>I'm a sucker for grumpy/sunshine. I also gravitate toward characters with "normal" jobs — there's a lot of sports-athlete romance in MM right now, and while those are fun, I want my books to show this genre can be about everyday people too.</p></div>
+      </details>
+
+      <details>
+        <summary>Anything fun/personal?<span class="q-icon"></span></summary>
+        <div class="answer"><p>If I'm not writing, I'm probably curled up on the couch with my husband, our furbabies piled somewhere on top of us, and something trashy playing on the TV. Love Island has had a hold on me for months — I will absolutely defend a villa contestant's terrible decisions with my whole chest. My ADHD keeps me busy pretty much around the clock, so honestly, that couch is the one place my brain actually slows down. It's not glamorous, but it's mine.</p></div>
+      </details>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-imprint">Stone&amp;Ink Publishing © 2026</span>
+    <ul class="footer-links">
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="https://www.tiktok.com/@pskirbyauthor" target="_blank">TikTok</a></li>
+      <li><a href="#" target="_blank">Instagram</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
