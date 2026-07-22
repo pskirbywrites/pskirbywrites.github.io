@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — P.S. Kirby</title>
+  <meta name="description" content="P.S. Kirby is a gay man writing MM romance from the inside — the heat, the emotion, the realness of it." />
+  <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1A1A1A;
+      --stone: #D9D0C7;
+      --parchment: #F5F0EB;
+      --ash: #555555;
+      --ink-soft: rgba(26,26,26,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    h1, h2, h3, .display { font-family: 'Sorts Mill Goudy', serif; font-weight: 400; letter-spacing: 0.01em; }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 3rem;
+      background: rgba(245, 240, 235, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(26, 26, 20, 0.1);
+    }
+    .nav-logo { font-family: 'Sorts Mill Goudy', serif; font-size: 1.4rem; letter-spacing: 0.06em; }
+    .nav-links { display: flex; list-style: none; gap: 2.2rem; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links a { opacity: 0.75; transition: opacity 0.25s ease; padding-bottom: 3px; border-bottom: 1px solid transparent; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; border-bottom-color: var(--ink); }
+
+    /* HERO */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 9rem 4rem 5rem;
+    }
+    .about-hero img {
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(26,26,26,0.1);
+      filter: grayscale(8%);
+    }
+    .about-hero .eyebrow {
+      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ash);
+      display: block; margin-bottom: 0.8rem;
+    }
+    .about-hero h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1.2rem; }
+    .about-hero p.lead { font-size: 1.2rem; color: var(--ink-soft); max-width: 48ch; }
+
+    /* BODY COPY */
+    .about-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 4rem 5rem;
+    }
+    .about-body p { margin-bottom: 1.4rem; font-size: 1.05rem; }
+
+    .signature-block {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(26,26,26,0.12);
+    }
+    .signature-block img {
+      height: 70px;
+      width: auto;
+      display: block;
+    }
+    .signature-block p {
+      font-size: 0.9rem;
+      color: var(--ash);
+      margin-top: 0.5rem;
+    }
+
+    /* QUICK FACTS STRIP */
+    .quick-facts {
+      background: var(--stone);
+      padding: 4rem;
+    }
+    .quick-facts-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 3rem;
+    }
+    .quick-fact .label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .quick-fact .value { font-size: 1.05rem; }
+
+    .about-cta {
+      text-align: center;
+      padding: 5rem 4rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .about-cta p { margin-bottom: 1.6rem; color: var(--ink-soft); }
+    .btn {
+      display: inline-block; padding: 0.9rem 1.9rem; border: 1px solid var(--ink);
+      font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+    .btn:hover { background: var(--ink); color: var(--parchment); }
+    .btn-filled { background: var(--ink); color: var(--parchment); }
+    .btn-filled:hover { background: transparent; color: var(--ink); }
+
+    footer {
+      padding: 3rem 4rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+      border-top: 1px solid rgba(26,26,26,0.1);
+      font-size: 0.85rem;
+    }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.78rem; }
+    .footer-links a { opacity: 0.7; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-imprint { opacity: 0.6; font-size: 0.78rem; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .about-hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+      .about-body { padding: 1.5rem 1.5rem 3rem; }
+      .quick-facts { padding: 3rem 1.5rem; }
+      .quick-facts-inner { grid-template-columns: 1fr; }
+      .about-cta { padding: 3rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">P.S. Kirby</a>
+    <ul class="nav-links">
+      <li><a href="books.html">Books</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="inside.html">The Inside</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="index.html#newsletter">Newsletter</a></li>
+    </ul>
+  </nav>
+
+  <div class="about-hero">
+    <img src="about-hero.jpg" alt="P.S. Kirby, author portrait" />
+    <div>
+      <span class="eyebrow">The Person Behind the Pen</span>
+      <h1>Hi, I'm P.S. Kirby.</h1>
+      <p class="lead">MM romance, written from the inside.</p>
+    </div>
+  </div>
+
+  <div class="about-body">
+    <p>I'm a gay man writing MM romance from the inside — the heat, the emotion, the realness of it. I started writing because I wanted gay love stories told by someone who actually lives one, and because I believe gay men deserve to see their lives reflected in mainstream romance, not just niche corners of the internet.</p>
+
+    <p>My books range from slow-burn emotional intensity to high-heat enemies-to-lovers, but they share a common thread: worlds where gay life is simply the story. No trauma for sport, no apology for the heat, no explaining the love.</p>
+
+    <p>I write under the Stone&amp;Ink Publishing imprint — my own imprint, named as a nod to the Stonewall Riots, with "Ink" making clear it's a writing house. I started writing off and on around 2021, but didn't find the momentum to actually publish until January 2026.</p>
+
+    <p>If I'm not writing, I'm probably curled up on the couch with my husband, our furbabies piled somewhere on top of us, and something trashy playing on the TV. Love Island has had a hold on me for months — I will absolutely defend a villa contestant's terrible decisions with my whole chest. My ADHD keeps me busy pretty much around the clock, so honestly, that couch is the one place my brain actually slows down. It's not glamorous, but it's mine.</p>
+
+    <p>I narrate my own audiobooks, and when I'm not doing that, I'm probably still writing.</p>
+
+    <div class="signature-block">
+      <img src="signature.png" alt="P.S. Kirby signature" />
+      <p>Thanks for being here.</p>
+    </div>
+  </div>
+
+  <div class="quick-facts">
+    <div class="quick-facts-inner">
+      <div class="quick-fact">
+        <span class="label">Genre</span>
+        <span class="value">MM Romance</span>
+      </div>
+      <div class="quick-fact">
+        <span class="label">Imprint</span>
+        <span class="value">Stone&amp;Ink Publishing</span>
+      </div>
+      <div class="quick-fact">
+        <span class="label">Based In</span>
+        <span class="value">Maryland</span>
+      </div>
+      <div class="quick-fact">
+        <span class="label">Currently</span>
+        <span class="value">Writing book four</span>
+      </div>
+      <div class="quick-fact">
+        <span class="label">Also Does</span>
+        <span class="value">Narrates his own audiobooks</span>
+      </div>
+      <div class="quick-fact">
+        <span class="label">Off the Clock</span>
+        <span class="value">Husband, furbabies, Love Island</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-cta">
+    <p>Want more of this? Come be part of the community.</p>
+    <a href="inside.html" class="btn btn-filled">The Inside</a>
+    <a href="faq.html" class="btn" style="margin-left:1rem;">Read the FAQ</a>
+  </div>
+
+  <footer>
+    <span class="footer-imprint">Stone&amp;Ink Publishing © 2026</span>
+    <ul class="footer-links">
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="https://www.tiktok.com/@pskirbyauthor" target="_blank">TikTok</a></li>
+      <li><a href="#" target="_blank">Instagram</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
