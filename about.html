@@ -41,6 +41,33 @@
     .nav-links a { opacity: 0.75; transition: opacity 0.25s ease; padding-bottom: 3px; border-bottom: 1px solid transparent; }
     .nav-links a:hover, .nav-links a.active { opacity: 1; border-bottom-color: var(--ink); }
 
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 26px;
+      height: 20px;
+      position: relative;
+      flex-shrink: 0;
+      padding: 0;
+      z-index: 200;
+    }
+    .nav-toggle span {
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--ink);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 9px; }
+    .nav-toggle span:nth-child(3) { top: 18px; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+
     /* HERO */
     .about-hero {
       display: grid;
@@ -146,7 +173,23 @@
 
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--parchment);
+        border-bottom: 1px solid rgba(26,26,26,0.12);
+        padding: 0.5rem 1.5rem 1.5rem;
+        z-index: 150;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 1rem 0; border-bottom: 1px solid rgba(26,26,26,0.08); }
       .about-hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
       .about-body { padding: 1.5rem 1.5rem 3rem; }
       .quick-facts { padding: 3rem 1.5rem; }
@@ -160,6 +203,7 @@
 
   <nav>
     <a href="index.html" class="nav-logo">P.S. Kirby</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="books.html">Books</a></li>
       <li><a href="about.html" class="active">About</a></li>
@@ -241,5 +285,24 @@
     </ul>
   </footer>
 
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('navToggle');
+      var links = document.querySelector('.nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          toggle.classList.toggle('open');
+          links.classList.toggle('open');
+        });
+        links.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            toggle.classList.remove('open');
+            links.classList.remove('open');
+          });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
