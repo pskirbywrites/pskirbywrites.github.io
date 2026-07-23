@@ -245,7 +245,23 @@
 
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--parchment);
+        border-bottom: 1px solid rgba(26,26,26,0.12);
+        padding: 0.5rem 1.5rem 1.5rem;
+        z-index: 150;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 1rem 0; border-bottom: 1px solid rgba(26,26,26,0.08); }
       section, .hero { padding: 6rem 1.5rem 3rem; }
       .hero { grid-template-columns: 1fr; }
       .books-grid { grid-template-columns: 1fr; }
@@ -259,6 +275,7 @@
 
   <nav>
     <a href="index.html" class="nav-logo">P.S. Kirby</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="books.html">Books</a></li>
       <li><a href="about.html">About</a></li>
@@ -423,5 +440,24 @@
     </ul>
   </footer>
 
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('navToggle');
+      var links = document.querySelector('.nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          toggle.classList.toggle('open');
+          links.classList.toggle('open');
+        });
+        links.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            toggle.classList.remove('open');
+            links.classList.remove('open');
+          });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
